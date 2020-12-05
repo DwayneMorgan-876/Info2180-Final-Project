@@ -57,12 +57,14 @@ body{
 .page{
     height: 100vh;
 	display: grid;
-	grid-column-gap: 10em;
+	grid-column-gap: 5em;
 	grid-template-columns: 15% 85%;
 	margin: 0
 }
 
 .createIssue{
+    position: relative;
+    left: 50%;
     border-style: solid;
     border-color: white;
     color: white;
