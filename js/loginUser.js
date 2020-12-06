@@ -5,9 +5,9 @@ window.onload = function(){
         e.preventDefault();
         var email = document.getElementById('email').value;
         var password = document.getElementById('password').value;
-        var user = {};
-        user.email=email;
-        user.password=password;
+        var user = {}
+        user.email=email
+        user.password=password
         var xhr = new XMLHttpRequest();
         // JSON.stringify(user)
         
