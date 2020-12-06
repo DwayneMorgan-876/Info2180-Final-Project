@@ -2,7 +2,7 @@
 
 $host = 'localhost';
 $db = 'schema';
-$username = 'root';
+$username = 'admin@project2.com';
 $password = 'password123';
 
 function validatePassword($pword) {
@@ -10,10 +10,12 @@ function validatePassword($pword) {
         if(preg_match('/[0-9+]/', $pword)) {
             return $pword;
         } else {
-            echo "Your password contains invalid characaters\n";
+            echo "Invalid password criteria\n";
         }
     } else {
-        echo "Your password is too short\n";
+        echo "Invalid password length\n";
         var_dump($pword);
     }
 }
+
+?>
