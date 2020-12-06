@@ -29,25 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $response = $stmt->fetch(PDO::FETCH_ASSOC);
                 
                 echo $response;
-                // if($email === "admin@project2.com" and $userPassword = 'password123') {
-                //     echo "ok";
-                //     $_SESSION['id'] = $user['id'];
-                //     $_SESSION['email'] = $user['email'];
-                // } else {
-                //     if (password_verify($userPassword, $user['password'])) {
-                //         echo "ok";
-                //         $_SESSION['id'] = $user['id'];
-                //         $_SESSION['email'] = $user['email'];
-                //         //header("Location:./dashboard.html");
-                //     } else {
-                //         echo "Invalid username or password. loginUser.php\n";
-                //         echo $user['password'];
-                //         echo "\n";
-                //         echo password_hash($userPassword, PASSWORD_DEFAULT);
-                //     }
-                // }
-                
-            } catch (Exception $e) {
+            } catch (Exception $e){
                 echo "Cannot loginUser.php\n";
                 echo $e->getMessage();
             }
