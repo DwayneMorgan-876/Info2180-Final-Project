@@ -33,12 +33,18 @@ body{
     height: 100vh;
 }
 
-.rightBar{
+/* .rightBar{
     height: 450px;
     padding:20px;
     margin-top: 40px;
     background-color: #1111;
-    border-color: black;
+} */
+.simple{
+    height: 310px;
+    padding:20px;
+    margin-top: 50px;
+    background-color: #1111;
+    border: 1px solid;
 }
 
 .side-icon{
@@ -70,6 +76,7 @@ button{
     color: white;
     padding-right: 20px;
     padding-left: 20px;
+    width: 100%;
 }
 
 li{
@@ -101,9 +108,8 @@ p{
 }
 
 .bighr{
-    height: 0.5px;
-    background-color: rgb(100, 100, 00);
-
+    padding: 42px;
+    background-color: none;
 }
 
 .markClosed{
@@ -127,6 +133,7 @@ p{
     grid-template-columns: 50% 50%;
     text-align: left;
 }
+
 .issue{
     margin: 0;
 }

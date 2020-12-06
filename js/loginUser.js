@@ -9,9 +9,8 @@ window.onload = function(){
         user.email=email
         user.password=password
         var xhr = new XMLHttpRequest();
-        // JSON.stringify(user)
         
-        xhr.open('GET',"/backend/test.php",true);
+        xhr.open('GET',"test.php",true);
 
         xhr.onload = function(){
         if(this.status == 200){

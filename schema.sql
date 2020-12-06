@@ -1,12 +1,11 @@
-DROP DATABASE IF EXISTS `schema`;
-CREATE DATABASE IF NOT EXISTS `schema` DEFAULT CHARACTER SET utf32 COLLATE utf32_general_ci;
-USE `schema`;
+DROP DATABASE IF EXISTS `schema1`;
+CREATE DATABASE IF NOT EXISTS `schema1` DEFAULT CHARACTER SET utf32 COLLATE utf32_general_ci;
+USE `schema1`;
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `issues`
---
+
+-- Table structure for table `issues`:\
 
 DROP TABLE IF EXISTS `issues`;
 CREATE TABLE IF NOT EXISTS `issues` (
@@ -24,19 +23,8 @@ CREATE TABLE IF NOT EXISTS `issues` (
   KEY `created_by` (`created_by`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
---
--- RELATIONSHIPS FOR TABLE `issues`:
---   `assigned_to`
---       `users` -> `id`
---   `created_by`
---       `users` -> `id`
---
 
--- --------------------------------------------------------
-
---
--- Table structure for table `users`
---
+-- Table structure for table `users`:
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
@@ -49,24 +37,20 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf32;
 
---
--- RELATIONSHIPS FOR TABLE `users`:
---
 
---
--- Dumping data for table `users`
---
+-- RELATIONSHIPS FOR TABLE `users`:
 
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `password`, `email`, `date_joined`) VALUES
 (1, 'ADMIN', 'ADMIN', MD5('password123'), 'admin@project2.com', '2020-12-02 20:23:39');
 
---
--- Constraints for dumped tables
---
 
---
+-- Permission for user--
+
+GRANT ALL PRIVILEGES ON schema1.* TO 'admin@project2.com'@'localhost'IDENTIFIED BY 'password123';
+
+
 -- Constraints for table `issues`
---
+
 ALTER TABLE `issues`
   ADD CONSTRAINT `issues_ibfk_1` FOREIGN KEY (`assigned_to`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `issues_ibfk_2` FOREIGN KEY (`created_by`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
