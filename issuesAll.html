@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>INFO2180-Final-Project</title>
-    <link rel="stylesheet" href="css/createIssue.css" />
+    <link rel="stylesheet" href="css/issuesAll.css" />
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <script src="js/app.js"></script>
+    <script src="js/dashboard.js"></script>
+
 </head>
 
 <body>
@@ -55,52 +56,33 @@
         </div>
 
         <div class="main-area">
-            <div>
-                <h1>Create Issue</h1>
+            <div class = 'topRow'>
+                <h1>Issues</h1>
+                <button class="createIssue" type="submit" id = 'submit_createissue'>Create New Issue</button>
+                
+            </div>
+                <div class = secRow>
+                <h3>Filter by:</h3>
+                <button class="allButton" type="submit" id = 'all'>ALL</button>
+                <button class="openButton" type="submit" id = 'open'>OPEN</button>
+                <button class="myTicketButton" type="submit" id = 'tickets'>MY TICKET</button>
             </div>
 
-            <div>
-                <form>
-                    <br>
-                    <br>
-                    Title<br>
-                    <input type="text" name="firstname" id = 'issue-title'>
-                    <br><br>
-                    Description<br>
-                    <textarea name="Text1" cols="53" rows="5" id ='issue-description'></textarea>
-                    <br><br>
-                    Assigned To<br>
-                    <select  class = "select" id = 'assignto'>
-                     <option value="0" >Marcia Brady</option>   
-                    </select>
-                    <br><br>
-                    Type <br>
-                    <select  class = "select" id = 'type'>
-                    <option value="0">Bug</option>  
-                    <option value="1">Proposal</option>  
-                    <option value="2">Task</option>    
-                    </select>
-                    <br><br>
-                    Priority 
-                    <br>
-                    <select  class = "select" id = 'priority'>
-                     <option value="0">Major</option>
-                     <option value="1">Minor</option>
-                     <option value="1">Critical</option>
-                     
-                     
-                    </select>
-                    
-                    <br><br>
-                </form>
+           <div id="container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Type</th>
+                        <th>Status</th>
+                        <th>Assigned To</th>
+                        <th>Created</th>
+                    </tr>
+                </thead>
+            </table>
+           </div>
 
-            </div>
-
-            <div>
-                <button class="submit" type="submit" id = 'submit_createissue'>Submit</button>
-            </div>
         </div>
-
     </div>
 
 
