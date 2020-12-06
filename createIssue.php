@@ -19,6 +19,10 @@ if (isset($_SESSION['id'])) {
                     $priority = filter_input(INPUT_POST, $_POST['priority'], FILTER_SANITIZE_STRING);
                     $status = "Open";
                     $assignedTemp = filter_input(INPUT_POST, $_POST['assignedTo'], FILTER_SANITIZE_STRING);
+<<<<<<< HEAD
+=======
+                    //$assignedTo = $
+>>>>>>> f94099df7955fec1b31bdb7af0aa7a683870d962
                     $createdBy = $_SESSION['id'];
                     $created = date("Y-m-d");
                     $updated = date("Y-m-d");
@@ -27,11 +31,22 @@ if (isset($_SESSION['id'])) {
                     $stmt->bindParam(':d', $description, PDO::PARAM_STR);
                     $stmt->bindParam(':t', $type, PDO::PARAM_STR);
                     $stmt->bindParam(':p', $priority, PDO::PARAM_STR);
+<<<<<<< HEAD
                     $stmt->bindParam(':s', $status, PDO::PARAM_STR);                  
                     $stmt->bindParam(':a', $assignedTo, PDO::PARAM_STR);       
                     $stmt->bindParam(':b', $createdBy, PDO::PARAM_STR);
                     $stmt->bindParam(':c', $created, PDO::PARAM_STR);
                     $stmt->bindParam(':u', $updated, PDO::PARAM_STR);
+=======
+                    $stmt->bindParam(':s', $status, PDO::PARAM_STR);
+                    //Should be stored as user id not name
+                    $stmt->bindParam(':a', $assignedTo, PDO::PARAM_STR);
+                    //should be stored as user id not name
+                    $stmt->bindParam(':b', $createdBy, PDO::PARAM_STR);
+                    $stmt->bindParam(':c', $created, PDO::PARAM_STR);
+                    $stmt->bindParam(':u', $updated, PDO::PARAM_STR);
+
+>>>>>>> f94099df7955fec1b31bdb7af0aa7a683870d962
                     $stmt->execute();
                 }
             }
