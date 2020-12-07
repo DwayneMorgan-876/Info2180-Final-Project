@@ -11,7 +11,7 @@ try {
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if (isset($_POST['firstname']) and isset($_POST['lastname']) and isset($_POST['email']) and isset($_POST['password'])) {        //check the variable used for username
             echo $_SESSION['id'];
-            $stmt = $conn -> prepare("INSERT INTO Users (firstname, lastname, email, 'password','date_joined') VALUES (:f, :l, :e, :p,:d)");
+            $stmt = $conn -> prepare("INSERT INTO Users (firstname, lastname, email, 'password','date_joined') VALUES (:fname, :lname, :email, :pass,:datej)");
 
             
             $first = filter_var($_POST['firstname'], FILTER_SANITIZE_STRING);
@@ -23,11 +23,15 @@ try {
             $email = filter_var($tempEmail, FILTER_VALIDATE_EMAIL);
             $hash = password_hash($userpassword, PASSWORD_DEFAULT);
 
-            $stmt -> bindParam(':f', $first, PDO::PARAM_STR);
-            $stmt -> bindParam(':l', $last, PDO::PARAM_STR);
-            $stmt -> bindParam(':e', $email, PDO::PARAM_STR);
-            $stmt -> bindParam(':p', $hash, PDO::PARAM_STR);
-            $stmt -> bindParam(':d', $date, PDO::PARAM_STR);
+            $stmt -> bindParam(':fname', $first, PDO::PARAM_STR);
+
+            $stmt -> bindParam(':lname', $last, PDO::PARAM_STR);
+
+            $stmt -> bindParam(':email', $email, PDO::PARAM_STR);
+
+            $stmt -> bindParam(':pass', $hash, PDO::PARAM_STR);
+            
+            $stmt -> bindParam(':datej', $date, PDO::PARAM_STR);
 
             $status = $stmt->execute();
 

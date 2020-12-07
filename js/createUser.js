@@ -3,25 +3,25 @@ window.onload = function(){
 
     submit.addEventListener('click',function(e){
         e.preventDefault();
-        var fname = document.getElementById('firstname').value;
-        var lname = document.getElementById('lastname').value;
-        var email = document.getElementById('email').value;
-        var password = document.getElementById('password').value;
-        var user = {};
+        var first_name = document.getElementById('firstname').value
+        var last_name = document.getElementById('lastname').value
+        var email = document.getElementById('email').value
+        var password = document.getElementById('password').value
+        var user = {}
 
-        user.firstname = fname;
-        user.lastname = lname;
+        user.firstname = first_name;
+        user.lastname = last_name;
         user.email = email;
         user.password = password;
 
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST','newUser.php',true);
-        xhr.onload = function(){
+        var httprequest = new XMLHttpRequest();
+        httprequest.open('POST','newUser.php',true)
+        httprequest.onload = function(){
             if(this.status == 200){
-                console.log(this.response);
+                console.log(this.response)
             }
         }
-        xhr.send(JSON.stringify(user)); 
+        httprequest.send(JSON.stringify(user)); 
 
     })
 }

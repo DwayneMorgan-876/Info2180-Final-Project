@@ -1,15 +1,12 @@
-DROP DATABASE IF EXISTS `schema1`;
-CREATE DATABASE IF NOT EXISTS `schema1` DEFAULT CHARACTER SET utf32 COLLATE utf32_general_ci;
-USE `schema1`;
-
---NOTE:when using "schema" we got some issues importing the SQL tables and granting permission so we tried schema1.--
--- --------------------------------------------------------
+DROP DATABASE IF EXISTS `schema`;
+CREATE DATABASE IF NOT EXISTS `schema` DEFAULT CHARACTER SET utf32 COLLATE utf32_general_ci;
+USE `schema`;
 
 
--- Table structure for table `issues`:\
 
-DROP TABLE IF EXISTS `issues`;
-CREATE TABLE IF NOT EXISTS `issues` (
+
+
+CREATE TABLE issues (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `type` enum('Bug','Proposal','Task') DEFAULT NULL,
   `description` int(11) NOT NULL,
@@ -25,10 +22,8 @@ CREATE TABLE IF NOT EXISTS `issues` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
 
--- Table structure for table `users`:
-
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE IF NOT EXISTS `users` (
+ 
+CREATE TABLE  users (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `firstname` varchar(30) DEFAULT NULL,
   `lastname` varchar(30) DEFAULT NULL,
@@ -39,18 +34,10 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf32;
 
 
--- RELATIONSHIPS FOR TABLE `users`:
 
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `password`, `email`, `date_joined`) VALUES
-(1, 'ADMIN', 'ADMIN', MD5('password123'), 'admin@project2.com', '2020-12-02 20:23:39');
+(1, 'ADMIN', 'ADMIN', MD5('password123'), 'admin@project2.com', '2020-12-02 13:05:39');
 
-
--- Permission for user--
-
-GRANT ALL PRIVILEGES ON schema1.* TO 'admin@project2.com'@'localhost'IDENTIFIED BY 'password123';
-
-
--- Constraints for table `issues`
 
 ALTER TABLE `issues`
   ADD CONSTRAINT `issues_ibfk_1` FOREIGN KEY (`assigned_to`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
