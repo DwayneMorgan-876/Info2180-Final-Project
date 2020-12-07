@@ -10,7 +10,7 @@ window.onload = function(){
         user.password=password
         var xhr = new XMLHttpRequest();
         
-        xhr.open('GET',"test.php",true);
+        xhr.open('GET',"password.php",true);
 
         xhr.onload = function(){
         if(this.status == 200){

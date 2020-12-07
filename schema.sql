@@ -2,6 +2,7 @@ DROP DATABASE IF EXISTS `schema1`;
 CREATE DATABASE IF NOT EXISTS `schema1` DEFAULT CHARACTER SET utf32 COLLATE utf32_general_ci;
 USE `schema1`;
 
+--NOTE:when using "schema" we got some issues importing the SQL tables and granting permission so we tried schema1.--
 -- --------------------------------------------------------
 
 

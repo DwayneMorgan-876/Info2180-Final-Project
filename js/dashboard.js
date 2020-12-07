@@ -6,7 +6,6 @@ window.onload = function(){
 
     xhr.onload = function(){
         if(this.status == 200){
-            // container.innerHTML = this.response;
             console.log(this.response);
         }
     }
